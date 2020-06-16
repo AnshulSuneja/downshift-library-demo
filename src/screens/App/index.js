@@ -1,14 +1,17 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import Content from './Content'
 import TopNavigation from './TopNavigation'
 
 const App = () => {
   return (
-    <>
-      <TopNavigation />
-      <Content />
-    </>
+    <BrowserRouter>
+      <>
+        <TopNavigation />
+        <Content />
+      </>
+    </BrowserRouter>
   )
 }
 
