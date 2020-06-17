@@ -1,0 +1,1 @@
+export const citiesList = ['Delhi', 'Pune', 'Mumbai', 'Bangalore', 'Chandigarh']
