@@ -1,4 +1,8 @@
 .content {
-  padding: 25px;
+  margin: 45px 100px 45px 100px;
+  padding: 35px;
+  height: 70vh;
   text-align: center;
+  border: 1px solid;
+  border-radius: 3px;
 }
