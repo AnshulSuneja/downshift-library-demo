@@ -9,3 +9,30 @@
   font-size: 25px;
   font-weight: 500;
 }
+
+.select .selector {
+  border: 1px solid gray;
+  width: 30%;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  margin: 30px;
+  padding: 10px;
+}
+
+.select .selector .select-button {
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.select .selector .active {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.select .selector .active {
+  pointer-events: none;
+  opacity: 0.7;
+}
+

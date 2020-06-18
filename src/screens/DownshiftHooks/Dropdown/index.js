@@ -15,13 +15,13 @@ const Dropdown = () => {
   const {
     isOpen, // Boolean which tells, if dropdown list is open or not
     selectedItem, // Currently selected item from the list
-    getToggleButtonProps,
+    getToggleButtonProps, // Props we need to pass to our toggler, it allows us to toggle the menu component.
     getLabelProps, // Can pass this prop in label element
-    getMenuProps,
+    getMenuProps, // Props we need to pass to our list element(div, ul)
     highlightedIndex, // Index of the currently hovered item
     getItemProps, // Method to get props of a particular item
   } = useSelect({ items: citiesList })
-
+  
   return (
     <div className='dropdown'>
       <title>{'Dropdown implementation by downshift hook'}</title>
@@ -32,10 +32,22 @@ const Dropdown = () => {
           {isOpen ? <CaretDownOutlined /> : <CaretRightOutlined />}
         </span>
       </button>
-      <div {...getMenuProps()} className={isOpen ? 'list' : ''}>
+      <div
+        {...getMenuProps({
+          onKeyDown: (event) => {
+            if (event.key === 'Enter') {
+              // Preventing Downshift's default 'Enter' behavior.
+              event.nativeEvent.preventDownshiftDefault = true;
+            }
+          },
+        })}
+        className={isOpen ? 'list' : ''}
+      >
         <div className='list-container'>
           {isOpen &&
-            citiesList.map((item, index) => (
+            citiesList.map((item, index) => {
+              console.log('Dropdown -> getItemProps({ item, index })', getItemProps({ item, index }))
+              return (
               <div
                 className={
                   highlightedIndex === index
@@ -55,11 +67,11 @@ const Dropdown = () => {
                   )}
                 </span>
               </div>
-            ))}
+            )})}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Dropdown
